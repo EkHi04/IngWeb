@@ -31,7 +31,8 @@ def detalleProyecto(request, id_proyecto):
         else:
             cadenaDeTexto += "No hay tareas asociadas a este proyecto."
 
-        return HttpResponse(cadenaDeTexto)
+        context = {'p' : proyecto, 'tareas':tareas}
+        return render(request,'vistaproyectos.html',context)
     except Proyecto.DoesNotExist:
         return HttpResponseNotFound("Proyecto no encontrado")
     
