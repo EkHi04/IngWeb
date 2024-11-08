@@ -12,7 +12,7 @@
     <ul>
         {% for tar in tareas %}
         <li>
-            {{tar.nombre}}:{{tar.descripcion}}
+            <a href="{% url 'detalleTarea' tar.id %}">{{tar.nombre}}:{{tar.descripcion}}</a>
         </li>
         {% endfor %}
     </ul>

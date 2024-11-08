@@ -12,7 +12,7 @@
     <ul>
         {% for per in personas %}
         <li>
-            {{per.nombre}}:{{per.dni}}
+            <a href="{% url 'detallePersona' per.id %}">{{per.nombre}}:{{per.dni}}</a>
         </li>
         {% endfor %}
     </ul>

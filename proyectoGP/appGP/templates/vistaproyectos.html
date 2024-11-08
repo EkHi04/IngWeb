@@ -10,13 +10,13 @@
     <p><strong>Fecha de Creación:</strong> {{ p.fecha_creacion }}</p>
     <p><strong>Fecha de Entrega:</strong> {{ p.fecha_entrega }}</p>
     <p><strong>Tareas:</strong></p>
-    <ul>
+    <ol>
         {% for tar in tareas %}
         <li>
-            {{tar.nombre}}:{{tar.descripcion}}
+            <a href="{% url 'detalleTarea' tar.id %}">{{tar.nombre}}:{{tar.descripcion}}</a>
         </li>
         {% endfor %}
-    </ul>
+    </ol>
     
 </body>
 </html>

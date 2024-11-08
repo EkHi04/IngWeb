@@ -12,7 +12,7 @@
     <ul>
         {% for pro in proyectos %}
         <li>
-            {{pro.nombre}}:{{pro.descripcion}}
+            <a href="{% url 'detalleProyecto' pro.id %}">{{pro.nombre}}:{{pro.descripcion}}</a>
         </li>
         {% endfor %}
     </ul>

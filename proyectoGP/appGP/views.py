@@ -62,11 +62,10 @@ def detallePersona(request, id_persona):
     try:
         persona = Persona.objects.get(pk=id_persona)
 
-        cadenaDeTexto = f"{persona.nombre} - Dni: {persona.dni}  - Telefono: {persona.telefono}  - Edad: {persona.edad} -  \n"
 
         
-
-        return HttpResponse(cadenaDeTexto)
+        context = {'p' : persona}
+        return render(request,'vistapersonas.html',context)
     except Persona.DoesNotExist:
         return HttpResponseNotFound("Tarea no encontrada")
     
