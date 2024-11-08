@@ -1,6 +1,7 @@
 from django.db import models
 
 class Proyecto(models.Model):
+    
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     fecha_creacion = models.DateField()
@@ -12,7 +13,7 @@ class Proyecto(models.Model):
 class Tarea(models.Model):
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
-    fecha_creacion = models.DateField(auto_now_add=True)
+    fecha_creacion = models.DateField()
     fecha_entrega = models.DateField(null=True, blank=True)
     proyecto = models.ForeignKey(Proyecto, related_name='tareas', on_delete=models.CASCADE)
 
@@ -27,4 +28,4 @@ class Persona(models.Model):
     tarea = models.ForeignKey(Tarea, related_name="personas", on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.dni
+        return self.nombre
