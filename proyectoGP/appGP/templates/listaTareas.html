@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Proyectos</title>
+    <title>Lista de Tareas</title>
 </head>
 <body>
     <h1>
-        Proyectos
+        Tareas
     </h1>
     <ul>
-        {% for pro in proyectos %}
+        {% for tar in tareas %}
         <li>
-            {{pro.nombre}}:{{pro.descripcion}}
+            {{tar.nombre}}:{{tar.descripcion}}
         </li>
         {% endfor %}
     </ul>

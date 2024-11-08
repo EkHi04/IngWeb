@@ -4,13 +4,13 @@ from .models import Proyecto, Tarea, Persona
 
 def listaProyectos(request):
     proyectos = Proyecto.objects.order_by('nombre')
-    nombres_proyectos = ', '.join([proyecto.nombre for proyecto in proyectos])
-    return HttpResponse(nombres_proyectos)
+    context = {'proyectos' : proyectos}
+    return render(request,'listaProyectos.html', context)
 
 def listadeTareas(request):
     tareas = Tarea.objects.order_by('nombre')
-    nombres_tareas = ', '.join([tarea.nombre for tarea in tareas])
-    return HttpResponse(nombres_tareas)
+    context = {'tareas' : tareas}
+    return render(request,'listaTareas.html', context)
 
 def listadePersonas(request):
     personas = Persona.objects.order_by('nombre')
