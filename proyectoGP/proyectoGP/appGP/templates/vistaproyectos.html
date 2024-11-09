@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle de Proyecto</title>
+</head>
+<body>
+    <h1>{{ p.nombre }}</h1>
+    <p><strong>Descripción:</strong> {{ p.descripcion }}</p>
+    <p><strong>Fecha de Creación:</strong> {{ p.fecha_creacion }}</p>
+    <p><strong>Fecha de Entrega:</strong> {{ p.fecha_entrega }}</p>
+    <p><strong>Tareas:</strong></p>
+    <ol>
+        {% for tar in tareas %}
+        <li>
+            <a href="{% url 'detalleTarea' tar.id %}">{{tar.nombre}}:{{tar.descripcion}}</a>
+        </li>
+        {% endfor %}
+    </ol>
+    
+</body>
+</html>
