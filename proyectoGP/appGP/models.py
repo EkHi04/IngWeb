@@ -26,6 +26,7 @@ class Persona(models.Model):
     telefono = models.CharField(max_length=9, blank=True)
     edad = models.PositiveIntegerField()
     tarea = models.ForeignKey(Tarea, related_name="personas", on_delete=models.CASCADE)
+    ImagenPersona = models.URLField(max_length=600, null=True, blank=True)
     
     def __str__(self):
         return self.nombre

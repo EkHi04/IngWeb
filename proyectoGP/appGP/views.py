@@ -11,12 +11,12 @@ def listaProyectos(request):
     return render(request,'listaProyectos.html', context)
 
 def listadeTareas(request):
-    tareas = Tarea.objects.order_by('nombre')
+    tareas = Tarea.objects.order_by('fecha_creacion')
     context = {'tareas' : tareas}
     return render(request,'listaTareas.html', context)
 
 def listadePersonas(request):
-    personas = Persona.objects.order_by('nombre')
+    personas = Persona.objects.order_by('dni')
     context = {'personas' : personas}
     return render(request,'listaPersonas.html', context)
 

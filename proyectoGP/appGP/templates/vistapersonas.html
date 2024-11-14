@@ -10,5 +10,11 @@
     <p><strong>Fecha de Creación:</strong> {{ p.dni }}</p>
     <p><strong>Telefono:</strong> {{ p.telefono }}</p>
     <p><strong>Edad:</strong> {{ p.edad }}</p> 
+    {% if p.ImagenPersona %}
+        <p>Imagen:</p>
+        <img src="{{p.ImagenPersona}}" alt="Foto">
+    {% elif %}
+        <p>Imagen: Esta persona no tiene una imagen asignada</p>
+    {% endif %}
 </body>
 </html>
