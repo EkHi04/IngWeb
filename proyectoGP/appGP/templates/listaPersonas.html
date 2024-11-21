@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
     <title>Lista de Personas</title>
 </head>
 <body>
-    <h1>
-        Personas
-    </h1>
+    <header>
+        <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="100">
+    </header>
+    
+    <h1>Personas</h1>
     <ul>
         {% for per in personas %}
         <li>
-            <a href="{% url 'detallePersona' per.id %}">{{per.nombre}}:{{per.dni}}</a>
+            <a href="{% url 'detallePersona' per.id %}">{{ per.nombre }}: {{ per.dni }}</a>
         </li>
         {% endfor %}
     </ul>
-    
-
-    
 </body>
 </html>

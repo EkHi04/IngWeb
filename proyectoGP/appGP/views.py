@@ -10,6 +10,7 @@ def listaProyectos(request):
     context = {'proyectos' : proyectos}
     return render(request,'listaProyectos.html', context)
 
+
 def listadeTareas(request):
     tareas = Tarea.objects.order_by('fecha_creacion')
     context = {'tareas' : tareas}
