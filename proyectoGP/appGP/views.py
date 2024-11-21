@@ -26,7 +26,7 @@ def detalleProyecto(request, id_proyecto):
         proyecto = Proyecto.objects.get(pk=id_proyecto)
         tareas = proyecto.tareas.all()
 
-        cadenaDeTexto = f"{proyecto.nombre} - Descripción: {proyecto.descripcion} - Fecha Creacion: {proyecto.fecha_creacion} - Fecha Entrega: {proyecto.fecha_entrega}\n"
+        cadenaDeTexto = f"{proyecto.nombre} - Descripción: {proyecto.descripcion} - Fecha Creacion: {proyecto.fecha_creacion} - Fecha Entrega: {proyecto.fecha_entrega} - Presupuesto: {proyecto.presupuesto} - Cliente: {proyecto.cliente} - Estado del Proyecto: {proyecto.estado}\n"
 
         if tareas.exists():
             cadenaDeTexto += "Tareas:\n"
@@ -47,7 +47,7 @@ def detalleTarea(request, id_tarea):
 
 
 
-        cadenaDeTexto = f"{tarea.nombre} - Descripción: {tarea.descripcion} - Fecha Creacion: {tarea.fecha_creacion} - Fecha Entrega: {tarea.fecha_entrega}\n"
+        cadenaDeTexto = f"{tarea.nombre} - Descripción: {tarea.descripcion} - Fecha Creacion: {tarea.fecha_creacion} - Fecha Entrega: {tarea.fecha_entrega} - Tiempo Estimado: {tarea.tiempo_estimado} - Prioridad de la tarea: {tarea.prioridad}\n"
 
         if personas.exists():
             cadenaDeTexto += "Personas que contribuyen a esta tarea:\n"
