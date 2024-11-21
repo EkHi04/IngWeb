@@ -8,10 +8,29 @@
     <title>Lista de Personas</title>
 </head>
 <body>
-    <header>
-        <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="100">
-    </header>
-    
+    <div id="main">
+        <div id="header">
+            <div id="logo">
+                <div id="logo_text">
+                <!-- class="logo_colour", allows you to change the colour of the text -->
+                <h1><a href="{% url 'index' %}">simple<span class="logo_colour">style_banner</span></a></h1>
+                <h2>Simple. Contemporary. Website Template.</h2>
+                </div>
+            </div>
+            <div id="menubar">
+                <ul id="menu">
+                <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                <li class="selected"><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'listaP' %}">Proyectos</a></li>
+                <li><a href="{% url 'listaT' %}">Tareas</a></li>
+                <li><a href="{% url 'listaPer' %}">Personas</a></li>
+                <li><a href="{% url 'listaP' %}">Contact Us</a></li>
+                </ul>
+            </div>
+            <div id="content_header"></div>
+
+        <div>
+    </div>
     <h1>Personas</h1>
     <ul>
         {% for per in personas %}
