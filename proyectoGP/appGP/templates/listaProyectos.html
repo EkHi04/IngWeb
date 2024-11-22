@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,18 +7,21 @@
     <title>Lista de Proyectos</title>
 </head>
 <body>
-    <h1>
-        Proyectos
-    </h1>
+    <h1>Lista de Proyectos</h1>
     <ul>
         {% for pro in proyectos %}
         <li>
-            <a href="{% url 'detalleProyecto' pro.id %}">{{pro.nombre}}:{{pro.descripcion}}</a>
+            <a href="{% url 'detalleProyecto' pro.id %}">
+                <strong>{{ pro.nombre }}</strong>: {{ pro.descripcion }}
+            </a>
+            <br>
+            <small>
+                Estado: {{ pro.get_estado_display }} |
+                Presupuesto: {{ pro.presupuesto|default:"No definido" }} |
+                Fecha de entrega: {{ pro.fecha_entrega|date:"d/m/Y" }}
+            </small>
         </li>
         {% endfor %}
     </ul>
-    
-
-    
 </body>
 </html>

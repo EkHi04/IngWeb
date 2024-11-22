@@ -1,13 +1,11 @@
 from django.db import models
 
 class Proyecto(models.Model):
-    
     nombre = models.CharField(max_length=100)
     descripcion = models.TextField()
     fecha_creacion = models.DateField()
     fecha_entrega = models.DateField(null=True, blank=True)
     presupuesto = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
-    cliente = models.CharField(max_length=100)
     estado = models.CharField(
         max_length=50,
         choices=[('active', 'Activo'), ('completed', 'Completado'), ('paused', 'En pausa')],

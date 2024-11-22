@@ -5,10 +5,14 @@ from .models import Proyecto, Tarea, Persona
 def index(request):
     return render(request, 'index.html')
 
-def listaProyectos(request):
+"""def listaProyectos(request):
     proyectos = Proyecto.objects.order_by('nombre')
     context = {'proyectos' : proyectos}
-    return render(request,'listaProyectos.html', context)
+    return render(request,'listaProyectos.html', context)"""
+
+def listadeProyectos(request):
+    proyectos = Proyecto.objects.all()  # Obtener todos los proyectos
+    return render(request, 'listaProyectos.html', {'proyectos': proyectos})
 
 
 def listadeTareas(request):
@@ -26,7 +30,7 @@ def detalleProyecto(request, id_proyecto):
         proyecto = Proyecto.objects.get(pk=id_proyecto)
         tareas = proyecto.tareas.all()
 
-        cadenaDeTexto = f"{proyecto.nombre} - Descripción: {proyecto.descripcion} - Fecha Creacion: {proyecto.fecha_creacion} - Fecha Entrega: {proyecto.fecha_entrega} - Presupuesto: {proyecto.presupuesto} - Cliente: {proyecto.cliente} - Estado del Proyecto: {proyecto.estado}\n"
+        cadenaDeTexto = f"{proyecto.nombre} - Descripción: {proyecto.descripcion} - Fecha Creacion: {proyecto.fecha_creacion} - Fecha Entrega: {proyecto.fecha_entrega} - Presupuesto: {proyecto.presupuesto}  - Estado del Proyecto: {proyecto.estado}\n"
 
         if tareas.exists():
             cadenaDeTexto += "Tareas:\n"
@@ -65,9 +69,6 @@ def detalleTarea(request, id_tarea):
 def detallePersona(request, id_persona):
     try:
         persona = Persona.objects.get(pk=id_persona)
-
-
-        
         context = {'p' : persona}
         return render(request,'vistapersonas.html',context)
     except Persona.DoesNotExist:
