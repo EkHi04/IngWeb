@@ -12,10 +12,10 @@
         <div id="header">
             <div id="logo">
                 <div id="logo_text">
-                <!-- class="logo_colour", allows you to change the colour of the text -->
-                <h1><a href="{% url 'index' %}">simple<span class="logo_colour">style_banner</span></a></h1>
-                <h2>Simple. Contemporary. Website Template.</h2>
-                </div>
+                <!-- Titulo y informacion de la cabecera -->
+                <h1><a href="{% url 'index' %}">Proyectos</a></h1>
+                <h2>Web sobre la organizacion de proyectos.</h2>
+            </div>
             </div>
             <div id="menubar">
                 <ul id="menu">
@@ -24,20 +24,30 @@
                 <li><a href="{% url 'listaP' %}">Proyectos</a></li>
                 <li><a href="{% url 'listaT' %}">Tareas</a></li>
                 <li><a href="{% url 'listaPer' %}">Personas</a></li>
-                <li><a href="{% url 'listaP' %}">Contact Us</a></li>
                 </ul>
             </div>
             <div id="content_header"></div>
 
         <div>
+    
+
+        <div id="content">
+            <h1>Personas</h1>
+            <ul>
+            {% for per in personas %}
+                <li>
+                    <a href="{% url 'detallePersona' per.id %}">{{ per.nombre }}: {{ per.dni }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        <div id="content_footer"></div>
+        <div id="footer">
+        <p><a href="{% url 'index' %}">Home</a> | <a href="{% url 'listaP' %}">Proyectos</a> | <a href="{% url 'listaT' %}">Tareas</a> | <a href="{% url 'listaPer' %}">Personas</a></a></p>
+        <p>Copyright &copy; simplestyle_banner | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a></p>
+        </div>
     </div>
-    <h1>Personas</h1>
-    <ul>
-        {% for per in personas %}
-        <li>
-            <a href="{% url 'detallePersona' per.id %}">{{ per.nombre }}: {{ per.dni }}</a>
-        </li>
-        {% endfor %}
-    </ul>
+    
 </body>
 </html>
