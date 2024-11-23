@@ -1,27 +1,65 @@
+<!DOCTYPE HTML>
+<html>
 
-<!DOCTYPE html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Proyectos</title>
+  {% load static %}
+  <title>Proyectos</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
 </head>
+
 <body>
-    <h1>Lista de Proyectos</h1>
-    <ul>
-        {% for pro in proyectos %}
-        <li>
-            <a href="{% url 'detalleProyecto' pro.id %}">
-                <strong>{{ pro.nombre }}</strong>: {{ pro.descripcion }}
-            </a>
-            <br>
-            <small>
-                Estado: {{ pro.get_estado_display }} |
-                Presupuesto: {{ pro.presupuesto|default:"No definido" }} |
-                Fecha de entrega: {{ pro.fecha_entrega|date:"d/m/Y" }}
-            </small>
-        </li>
-        {% endfor %}
-    </ul>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- Titulo y informacion de la cabecera -->
+          <h1><a href="{% url 'index' %}">Proyecto</a></h1>
+          <h2>Web sobre la organizacion de un proyecto.</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- Paginas html -->
+          <li class="selected"><a href="{% url 'index' %}">Home</a></li>
+          <li><a href="{% url 'listaP' %}">Proyectos</a></li>
+          <li><a href="{% url 'listaT' %}">Tareas</a></li>
+          <li><a href="{% url 'listaPer' %}">Personas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <!--Imagen de la pagina web-->
+      <!--<div id="banner"></div>-->
+      <!--Codigo borrado-->
+      <div id="content">
+        <!-- Proyectos -->
+        <h1>Proyectos</h1>
+        <ul>
+            {% for pro in proyectos %}
+            <li>
+                <a href="{% url 'detalleProyecto' pro.id %}">
+                    <strong>{{ pro.nombre }}</strong>: {{ pro.descripcion }}
+                </a>
+                <br>
+                <small>
+                    Estado: {{ pro.get_estado_display }} |
+                    Presupuesto: {{ pro.presupuesto|default:"No definido" }} |
+                    Fecha de entrega: {{ pro.fecha_entrega|date:"d/m/Y" }}
+                </small>
+            </li>
+            {% endfor %}
+        </ul>    
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a href="{% url 'index' %}">Home</a> | <a href="{% url 'listaP' %}">Proyectos</a> | <a href="{% url 'listaT' %}">Tareas</a> | <a href="{% url 'listaPer' %}">Personas</a></a></p>
+      <p>Copyright &copy; simplestyle_banner | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a></p>
+    </div>
+  </div>
 </body>
 </html>
