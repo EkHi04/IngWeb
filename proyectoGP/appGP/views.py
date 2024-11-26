@@ -48,9 +48,7 @@ def detalleTarea(request, id_tarea):
     try:
         tarea = Tarea.objects.get(pk=id_tarea)
         personas = tarea.personas.all()
-
-
-
+        
         cadenaDeTexto = f"{tarea.nombre} - Descripción: {tarea.descripcion} - Fecha Creacion: {tarea.fecha_creacion} - Fecha Entrega: {tarea.fecha_entrega} - Tiempo Estimado: {tarea.tiempo_estimado} - Prioridad de la tarea: {tarea.prioridad}\n"
 
         if personas.exists():
