@@ -28,7 +28,7 @@ h1, h2, h3
   padding: 15px 0 5px 0;
   color: #000;}
 
-h2
+h2A
 { font-size: 160%;
   padding: 9px 0 5px 0;
   color: #009FBC;}
@@ -64,8 +64,7 @@ blockquote
   background: #FFF;}
 
 ul
-{ margin: 2px 0 22px 17px;
-text-align: center;}
+{ margin: 2px 0 22px 17px;}
 
 ul li
 { list-style-type: circle;
