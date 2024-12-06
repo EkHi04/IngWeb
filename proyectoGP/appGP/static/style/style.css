@@ -95,7 +95,8 @@ ol li
 
 #main, #logo, #menubar, #site_content, #footer
 { margin-left: auto; 
-  margin-right: auto;}
+  margin-right: auto;
+}
 
 #header
 { background: #323534 url(back.png) repeat-x;
@@ -244,7 +245,9 @@ ul#menu li a:hover
   padding: 28px 0 5px 0;
   text-align: center; 
   background: #3B3939 url(footer.png) repeat-x;
-  color: #A8AA94;}
+  color: #A8AA94;
+}
+  
 
 #footer p
 { line-height: 1.7em;
@@ -329,3 +332,4 @@ table tr td
 { background: #E5E5DB;
   color: #47433F;
   border-top: 1px solid #FFF;}
+

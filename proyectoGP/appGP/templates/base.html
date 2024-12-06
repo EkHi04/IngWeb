@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+{% load static %}
+<html lang="es">
+<head>
+    <title>Base de Proyecto</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Descripción de la base del proyecto">
+    <meta name="keywords" content="gestión, proyectos, tareas, personas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}"/>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header id="header">
+        <div id="logo">
+            <h1><a href="{% url 'index' %}">Proyecto Base</a></h1>
+        </div>
+        <nav id="menubar">
+            <ul id="menu">
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'listaP' %}">Proyectos</a></li>
+                <li><a href="{% url 'listaT' %}">Tareas</a></li>
+                <li><a href="{% url 'listaPer' %}">Personas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+        <header class="major">
+            {% block title %}
+            {% endblock %}
+        </header>
+
+        <section id="content-body">
+            {% block content %}
+            <!-- Aquí se cargará el contenido específico de cada página -->
+            {% endblock %}
+        </section>
+    </main>
+
+
+    <!-- Pie de página -->
+    <footer id="footer">
+        <p>&copy; 2024 Proyecto Base. Todos los derechos reservados.</p>
+        <p><a href="{% url 'index' %}">Inicio</a> | <a href="{% url 'listaP' %}">Proyectos</a> | <a href="{% url 'listaT' %}">Tareas</a> | <a href="{% url 'listaPer' %}">Personas</a></a></p>
+        <p>Diseño inspirado por <a href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a>.</p>
+    </footer>
+</body>
+</html>
