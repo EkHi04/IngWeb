@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Destacar el menú activo
@@ -44,6 +47,7 @@ if (!sessionStorage.getItem('alertShown')) {
         alert('¡Bienvenido a Proyecto Base!');
         sessionStorage.setItem('alertShown', 'true'); // Marca que el mensaje ya fue mostrado
     };
+    
 }
 
 

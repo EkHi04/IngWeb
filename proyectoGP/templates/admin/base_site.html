@@ -8,10 +8,11 @@
 {% endblock  %}
 
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">Markel</a></h1>
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Admin ProyectoGP</a></h1>
 {% if user.is_anonymous %}
     {% include "admin/color_theme_toggle.html" %}
 {% endif %}
 {% endblock %}
 
 {% block nav-global %}{% endblock nav-global %}
+

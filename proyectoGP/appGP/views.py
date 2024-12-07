@@ -5,10 +5,6 @@ from .models import Proyecto, Tarea, Persona
 def index(request):
     return render(request, 'index.html')
 
-"""def listaProyectos(request):
-    proyectos = Proyecto.objects.order_by('nombre')
-    context = {'proyectos' : proyectos}
-    return render(request,'listaProyectos.html', context)"""
 
 def listadeProyectos(request):
     proyectos = Proyecto.objects.all()  # Obtener todos los proyectos
