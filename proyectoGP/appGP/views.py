@@ -55,7 +55,7 @@ def detalleTarea(request, id_tarea):
             cadenaDeTexto += "No hay personas asociadas a este proyecto."
         
         
-        context = {'t' : tarea}
+        context = {'t' : tarea, 'personas':personas}
         return render(request,'vistatareas.html',context)
     except Tarea.DoesNotExist:
         return HttpResponseNotFound("Tarea no encontrada")

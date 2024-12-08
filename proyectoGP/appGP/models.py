@@ -5,7 +5,7 @@ class Proyecto(models.Model):
     descripcion = models.TextField()
     fecha_creacion = models.DateField()
     fecha_entrega = models.DateField(null=True, blank=True)
-    presupuesto = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    presupuesto = models.DecimalField(max_digits=100, decimal_places=2, null=True, blank=True)
     estado = models.CharField(
         max_length=50,
         choices=[('active', 'Activo'), ('completed', 'Completado'), ('paused', 'En pausa')],
@@ -40,7 +40,15 @@ class Persona(models.Model):
     direccion = models.TextField(null=True, blank=True)
     rol = models.CharField(
         max_length=50,
-        choices=[('Manager', 'Manager'), ('Developer', 'Desarrollador'), ('Tester', 'Tester')],
+        choices = [
+        ('Manager', 'Manager'),
+        ('Developer', 'Desarrollador'),
+        ('Tester', 'Tester'),
+        ('FootballPlayer', 'Futbolista'),
+        ('ArmedForces', 'Fuerzas Armadas'),
+        ('Student', 'Estudiante')
+]
+,
         default='Developer'
     )
     ImagenPersona = models.URLField(max_length=600, null=True, blank=True)
