@@ -7,7 +7,7 @@ def index(request):
 
 
 def listadeProyectos(request):
-    proyectos = Proyecto.objects.all()  # Obtener todos los proyectos
+    proyectos = Proyecto.objects.all()  
     return render(request, 'listaProyectos.html', {'proyectos': proyectos})
 
 

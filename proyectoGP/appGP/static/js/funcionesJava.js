@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('#menu li a').forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
-        const contentBody = document.querySelector('#content-body');
+        const contentBody = document.querySelector('#main-content');
 
         contentBody.classList.add('fade'); // Clase opcional en tu CSS para la transición
 
@@ -26,7 +26,7 @@ document.querySelectorAll('#menu li a').forEach(link => {
                 const tempDoc = new DOMParser().parseFromString(html, 'text/html');
 
                 // Selecciona solo el contenido que necesitas, excluyendo el menú y otras partes
-                const newContent = tempDoc.querySelector('#content-body');
+                const newContent = tempDoc.querySelector('#main-content');
 
                 // Solo actualizar el contenido de la página, sin el menú ni encabezados
                 if (newContent) {
@@ -86,37 +86,46 @@ if (!sessionStorage.getItem('alertShown')) {
         });
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const menuLinks = document.querySelectorAll("#menu a");
-    
-        menuLinks.forEach(link => {
-            link.addEventListener("click", function (event) {
-                event.preventDefault();  // Evita la recarga completa de la página
-    
-                // Obtén la URL del enlace
-                const url = link.getAttribute("href");
-    
-                // Verifica si el contenido ya ha sido cargado
-                if (!document.querySelector(`#content[data-url="${url}"]`)) {
-                    // Realiza la llamada al servidor para obtener el contenido del enlace
-                    fetch(url)
-                        .then(response => response.text())
-                        .then(data => {
-                            const contentDiv = document.querySelector("#content");
-                            
-                            // Limpia el contenido anterior
-                            contentDiv.innerHTML = data;
-    
-                            // Establece un atributo personalizado para evitar duplicación
-                            contentDiv.setAttribute("data-url", url);
-                        })
-                        .catch(error => {
-                            console.error("Error al cargar el contenido:", error);
-                        });
-                }
-            });
+document.addEventListener('DOMContentLoaded', () => {
+    const menuLinks = document.querySelectorAll('#menu a');
+    const contentDiv = document.querySelector('#content-body'); // Asegúrate de que el ID sea correcto
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault(); // Evita la recarga completa de la página
+
+            // Obtén la URL del enlace
+            const url = link.getAttribute('href');
+
+            // Realiza la llamada al servidor para obtener el contenido del enlace
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    // Crear un DOM temporal para trabajar con el nuevo contenido
+                    const tempDoc = new DOMParser().parseFromString(data, 'text/html');
+
+                    // Actualiza el contenido del body (o la sección específica)
+                    const newContent = tempDoc.querySelector('#content-body');
+                    if (newContent) {
+                        contentDiv.innerHTML = newContent.innerHTML;
+                    }
+
+                    // Actualiza el título de la página
+                    const newTitle = tempDoc.querySelector('title');
+                    if (newTitle) {
+                        document.title = newTitle.textContent;
+                    }
+
+                    // Opcional: Marca el contenido cargado para evitar duplicados
+                    contentDiv.setAttribute('data-url', url);
+                })
+                .catch(error => {
+                    console.error('Error al cargar el contenido:', error);
+                });
         });
     });
+});
+
     
     
 

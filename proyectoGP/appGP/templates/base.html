@@ -9,10 +9,9 @@
     <meta name="keywords" content="gestión, proyectos, tareas, personas">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style/style.css' %}"/>
-    <link rel="stylesheet" href="{% static 'style/javascript.css' %}"/>
-    <script src="{% static 'js/javascript.js' %}"></script>
-    <script src="{% static 'js/jquery-ui.js' %}"></script>
-    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/funcionesJava.js' %}"></script>
+    <script src="{% static 'js/API.js' %}"></script>
+
 
 
 </head>
@@ -23,12 +22,10 @@
             <h1><a href="{% url 'index' %}">Proyecto Base</a></h1>
         </div>
         <nav id="menubar">
-            <ul id="menu">
-                <li><a href="{% url 'index' %}">Inicio</a></li>
-                <li><a href="{% url 'listaP' %}">Proyectos</a></li>
-                <li><a href="{% url 'listaT' %}">Tareas</a></li>
-                <li><a href="{% url 'listaPer' %}">Personas</a></li>
-            </ul>
+            
+            {% block menu %}
+                
+            {% endblock  %}
         </nav>
     </header>
 

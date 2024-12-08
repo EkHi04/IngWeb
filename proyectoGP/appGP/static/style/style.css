@@ -98,6 +98,8 @@ margin: 20px auto;}
 margin-right: auto;
 }
 
+
+
 #header
 { background: #323534 url(back.png) repeat-x;
 height: 177px;}
@@ -342,3 +344,4 @@ border-top: 1px solid #FFF;}
 #content-body {
     opacity: 1;
 }
+

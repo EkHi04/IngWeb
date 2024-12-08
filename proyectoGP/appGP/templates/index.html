@@ -1,7 +1,14 @@
 {% extends "base.html" %} 
-    {% block title %}
+{% block menu %}
+    <ul id="menu">
+        <li><a href="{% url 'listaP' %}">Lista de Proyectos</a></li>
+        <li><a href="{% url 'listaT' %}">Tareas</a></li>
+        <li><a href="{% url 'listaPer' %}">Personas</a></li>
+    </ul>
+{% endblock  %}
+{% block title %}
     <h1>Bienvenido a gestores de proyectos</h1>
-    {% endblock %}
+{% endblock %}
 
 {% block content %}
     <ul>
